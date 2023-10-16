@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Add</title>
+</head>
+<body>
+        <h1>Product Add</h1><br> <br>
+        <a href="/product/home">HOME</a><br>
+
+        {{message}}<br>
+        <form action="/product/add" method="post">
+
+            <input type="text" name="prid" hidden value={{product.prodid}}> <br><br>
+            Product Name : <input type="text" name="prname" value={{product.prodname}}> <br><br>
+            Product Price : <input type="text" name="prprice" value={{product.prodprice}}> <br><br>
+            Product Qty : <input type="text" name="prqty" value={{product.prodqty}}> <br><br>
+            Product Vendor : <input type="text" name="prvendor" value={{product.prodven}}> <br><br>
+            Product Category : <select name="prcat">
+                       <option value="ET" {%if product.prodcat=='ET'%} selected {%endif%}>Electronics</option>
+                       <option value="HT" {%if product.prodcat=='HT'%} selected {%endif%}>HouseUse</option>
+                       <option value="OT" {%if product.prodcat=='OT'%} selected {%endif%}>OfficeUse</option>
+                       <option value="GN" {%if product.prodcat=='GN'%} selected {%endif%}>In General</option>
+                       <option value="OR" {%if product.prodcat=='OR'%} selected {%endif%}>OTHER</option>
+                  </select> <br><br>
+            Product Desc : <input type="text" name="prdesc" value={{product.proddesc}}> <br><br>
+            Product BarCode : <input type="text" name="prbcode" value={{product.prodbarcode}}> <br><br>
+
+            <input type="submit" value="Save">
+
+        </form>
+</body>
+</html>

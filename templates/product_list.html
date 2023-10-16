@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+
+  <a href="/product/home">HOME</a><br> <br>
+
+    <table border="1">
+            <thead>
+                <th>Product Id </th>  <th>Product Name </th>
+                 <th>Product Price </th>  <th>Product Vendor </th>
+             <th>Product Qty </th>   <th>Product Desc </th>
+                 <th>Product Category </th><th>Action</th>
+            </thead>
+
+        <tbody>
+                {% for prod in prod_list %}
+                    <tr>
+                        <td> {{prod.prodid}} </td>
+                        <td> {{prod.prodname}} </td>
+                        <td> {{prod.prodprice}} </td>
+                        <td> {{prod.prodven}} </td>
+                        <td> {{prod.prodqty}} </td>
+                        <td> {{prod.proddesc}} </td>
+                        <td> {{prod.prodcat}} </td>
+                        <td><a href="/product/update/{{prod.prodid}}">Edit</a> |
+                            <a href="/product/delete/{{prod.prodid}}">Delete</a></td>
+                    </tr>
+                {% endfor %}
+
+        </tbody>
+    </table>
+
+</body>
+</html>

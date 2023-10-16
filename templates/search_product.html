@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Product</title>
+</head>
+<body>
+        <h1>Product Search</h1><br> <br>
+        <a href="/product/home">HOME</a><br> <br>
+        <form action="/product/search" method="post">
+            Select Criteria : <select name="searchBy">
+                    <option value="ID">By-ID</option>
+                    <option value="NAME">BY-NAME</option>
+                    <option value="VENDER">BY-VENDOR</option>
+                    <option value="CATEGORY">BY-CATEGORY</option>
+            </select>
+            Enter Value : <input type="text" name="data">
+            <br><br>
+            <input type="submit" value="Search">
+        </form>
+ {% if products %}
+
+ <table border="1">
+        <thead>
+            <th>Product Id </th>  <th>Product Name </th>
+             <th>Product Price </th>  <th>Product Vendor </th>
+         <th>Product Qty </th>   <th>Product Desc </th>
+             <th>Product Category </th>
+        </thead>
+        <tbody>
+                {% for prod in products %}
+                    <tr>
+                        <td> {{prod.prodid}} </td>
+                        <td> {{prod.prodname}} </td>
+                        <td> {{prod.prodprice}} </td>
+                        <td> {{prod.prodven}} </td>
+                        <td> {{prod.prodqty}} </td>
+                        <td> {{prod.proddesc}} </td>
+                        <td> {{prod.prodcat}} </td>
+
+                    </tr>
+                {% endfor %}
+
+        </tbody>
+ </table>
+{% endif  %}
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Sort-By</title>
+</head>
+<body>
+    <a href="/product/home">HOME</a><br> <br>
+
+        <form action="/product/sort" method="post">
+
+            Select Sort Criteria : <select name="sortBy">
+                    <option value="ID">BY-ID</option>
+                    <option value="NAME">BY-NAME</option>
+                     <option value="VENDOR">BY-VENDOR</option>
+                     <option value="CATEGORY">BY-CATEGORY</option>
+                    <option value="PRICE">BY-PRICE</option>
+                    <option value="QTY">BY-QTY</option>
+                    <option value="DESC">BY-DESC</option>
+        </select><br><br>
+              Select Sort Criteria : <select name="order">
+                    <option value="ASC">ASCENDING</option>
+                    <option value="DESC">DESCEDNING</option>
+        </select>
+
+            <br><br>
+
+            <input type="submit" value="Search">
+         </form><br><br>
+    {% if products %}
+     <table border="1">
+                <thead>
+                    <th>Product Id </th>  <th>Product Name </th>
+                     <th>Product Price </th>  <th>Product Vendor </th>
+                 <th>Product Qty </th>   <th>Product Desc </th>
+                     <th>Product Category </th>
+                </thead>
+
+            <tbody>
+                    {% for prod in products %}
+                        <tr>
+                            <td> {{prod.prodid}} </td>
+                            <td> {{prod.prodname}} </td>
+                            <td> {{prod.prodprice}} </td>
+                            <td> {{prod.prodven}} </td>
+                            <td> {{prod.prodqty}} </td>
+                            <td> {{prod.proddesc}} </td>
+                            <td> {{prod.prodcat}} </td>
+
+                        </tr>
+                    {% endfor %}
+
+            </tbody>
+        </table>
+        {% endif  %}
+</body>
+</html>
